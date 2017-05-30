@@ -14,22 +14,12 @@ import java.sql.Statement;
  *
  */
 public class Connector {
-	/*
-	 * String userInfoName = ("Memphur"); String userInfoPw =
-	 * ("8J<?zxu4.5$[6%NU");
-	 */
-
-	/*
-	 * String host = "wildboy.uib.no"; String dbName = "oblig4"; int port =
-	 * 3306;
-	 */
 
 	static final String HOST = "wildboy.uib.no";
 	static final String DBNAME = "oblig4";
 	static final int PORT = 3306;
 	static final String USRNM = "Memphur";
 	static final String URSPW = "8J<?zxu4.5$[6%NU";
-
 	public Connection conn = null;
 	Statement stmt = null;
 	PreparedStatement preparedStatement = null;
