@@ -778,6 +778,17 @@ public class UI {
 		});
 		debugButton.setBounds(896, 20, 302, 53);
 		frame.getContentPane().add(debugButton);
+
+		JButton clearDebuggerButton = new JButton("Clear debugger");
+		clearDebuggerButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		clearDebuggerButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				clearDebugger();
+			}
+		});
+		clearDebuggerButton.setBounds(838, 78, 172, 31);
+		frame.getContentPane().add(clearDebuggerButton);
 		comboBox.setVisible(false);
 	}
 }
