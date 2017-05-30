@@ -177,6 +177,10 @@ public class Gamemaster {
 	}
 
 	public boolean didOpponentStartTheGame() {
+		// The Bot_Basic starts on move 1
+		if (opponent.getName().contains("Bot_Basic")) {
+			rounds = 1;
+		}
 		ResultSet theGame = connector.returnGameInProgress(getGameID(), rounds);
 		boolean result = false;
 		try {
