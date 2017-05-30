@@ -30,6 +30,7 @@ public class Testing {
 	public void testInsertGameInProgress() throws SQLException {
 		Gamemaster gamemaster = new Gamemaster();
 		gamemaster.joinOpenGame(0);
+		gamemaster.getConnector().conn.close();
 	}
 
 	/**
@@ -42,6 +43,7 @@ public class Testing {
 	public void testJoinOpenGame() throws SQLException {
 		Gamemaster gamemaster = new Gamemaster();
 		gamemaster.joinOpenGame(0);
+		gamemaster.getConnector().conn.close();
 	}
 
 	@Test
@@ -49,12 +51,14 @@ public class Testing {
 
 		Gamemaster gamemaster = new Gamemaster();
 		ResultSet openGames = gamemaster.returnOpenGames();
+		gamemaster.getConnector().conn.close();
 	}
 
 	@Test
 	public void testCanJoinOpenGame() throws SQLException {
 		Gamemaster gamemaster = new Gamemaster();
 		gamemaster.canJoinOpenGame();
+		gamemaster.getConnector().conn.close();
 	}
 
 	@Test
@@ -62,6 +66,11 @@ public class Testing {
 		Player player1 = new RobotOne("player1");
 		Gamemaster gamemaster = new Gamemaster();
 		gamemaster.makeNewGame(player1);
+		try {
+			gamemaster.getConnector().conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
@@ -76,5 +85,6 @@ public class Testing {
 	public void testLastMoveNumber() throws SQLException {
 		Gamemaster gamemaster = new Gamemaster();
 		System.out.println(gamemaster.getNumberOfMoves("z6ux79sjnqfez1meejrf"));
+		gamemaster.getConnector().conn.close();
 	}
 }
