@@ -7,7 +7,9 @@ public class PotentialPlayer {
 	String player_1_random;
 
 	/**
-	 * This is a representation of a player that has an open game
+	 * This is a representation of a player that has an open game Could
+	 * potentially be used instead of the arraylists and hashmap to find and
+	 * display open games.
 	 * 
 	 * @param id
 	 * @param player_1
