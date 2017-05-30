@@ -89,7 +89,6 @@ public class UI {
 	public void addDebugText(String text) {
 		debugArea.setText(debugArea.getText() + "\n" + text);
 		debugArea.setCaretPosition(50000);
-
 	}
 
 	/**
