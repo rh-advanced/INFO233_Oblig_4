@@ -343,6 +343,7 @@ public class UI {
 		gamemaster.playAIRound(move);
 		if (debug()) {
 			addDebugText("Your chosen move was : " + move);
+			addDebugText("Your actual move made was: " + gamemaster.getHumanPlayer().getMove());
 			addDebugText("The robot's move was : " + gamemaster.getRobot().getMove());
 			addDebugText("Player energy: " + gamemaster.getHumanPlayer().getEnergy());
 			addDebugText("Robot energy : " + gamemaster.getRobot().getEnergy());
@@ -729,12 +730,19 @@ public class UI {
 				int moveInt = Integer.parseInt(move);
 
 				oneRoundVsAI(moveInt);
+				if (debug()) {
+					addDebugText("Is the game over? " + gamemaster.gameOver());
+
+				}
 				if (gamemaster.gameOver()) {
 					currentPos = gamemaster.getHumanPlayer().getPosition();
 
 					gamemaster.scoreGiverVsAI();
 					gamemaster.updateRanking();
-
+					if (debug()) {
+						addDebugText("Player score: " + gamemaster.getHumanPlayer().getEarnedPoints());
+						addDebugText("robot score: " + gamemaster.getRobot().getEarnedPoints());
+					}
 					addText("Game is over");
 					addText("Submitting scores to the database.");
 					makeMoveVsAIButton.setVisible(false);
