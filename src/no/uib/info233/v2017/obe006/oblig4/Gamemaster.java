@@ -566,7 +566,8 @@ public class Gamemaster {
 
 		if (isCPUGame()) {
 			if (getHumanPlayer().getPosition() == getHumanPlayer().getHomePosition()
-					|| getRobot().getPosition() == getRobot().getHomePosition())
+					|| getRobot().getPosition() == getRobot().getHomePosition()
+					|| getHumanPlayer().getEnergy() == 0 && getRobot().getEnergy() == 0)
 				gameover = true;
 		}
 
