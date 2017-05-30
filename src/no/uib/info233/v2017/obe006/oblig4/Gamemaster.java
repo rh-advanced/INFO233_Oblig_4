@@ -177,7 +177,7 @@ public class Gamemaster {
 	}
 
 	public boolean didOpponentStartTheGame() {
-		// The Bot_Basic starts on move 1
+		// The Bot_Basic starts on round 1
 		if (opponent.getName().contains("Bot_Basic")) {
 			rounds = 1;
 		}
