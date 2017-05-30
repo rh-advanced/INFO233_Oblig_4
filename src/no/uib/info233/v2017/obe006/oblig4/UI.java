@@ -716,9 +716,15 @@ public class UI {
 				makeMoveButton.setVisible(false);
 				newGameButton.setVisible(false);
 				makeMoveVsAIButton.setVisible(true);
-				chooseName();
-				makeGameVsAI();
-				comboBox.setVisible(false);
+				if (chooseName()) {
+					makeGameVsAI();
+					comboBox.setVisible(false);
+				} else {
+					JOptionPane.showMessageDialog(frame, "You must choose a name", "Error", JOptionPane.ERROR_MESSAGE);
+					addText("Make sure to choose a name first");
+					fightChosenPlayerButton.setVisible(false);
+					return;
+				}
 			}
 		});
 		playVsAIButton.setBounds(35, 563, 172, 66);
