@@ -92,6 +92,11 @@ public class UI {
 
 	}
 
+	/**
+	 * Clears text from debugger
+	 */
+	public void clearDebugger() {
+		debugArea.setText(null);
 	}
 
 	/**
