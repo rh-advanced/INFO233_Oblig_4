@@ -30,7 +30,6 @@ public class Connector {
 	 */
 	public Connector() {
 		try {
-
 			Class.forName("com.mysql.jdbc.Driver");
 		}
 
@@ -75,7 +74,6 @@ public class Connector {
 			System.out.println("Inserting score to database.");
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -100,15 +98,10 @@ public class Connector {
 			preparedStatement.setInt(4, 0);
 			preparedStatement.setInt(5, 100);
 			preparedStatement.setInt(6, 100);
-			/*
-			 * preparedStatement.set(7, "null"); preparedStatement.setString(8,
-			 * "null");
-			 */
 			preparedStatement.setInt(7, 0);
 			System.out.println("Inserting into games_in_progress");
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -131,7 +124,6 @@ public class Connector {
 			System.out.println("Inserting into games_in_progress");
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -143,7 +135,6 @@ public class Connector {
 			String sql = "SELECT player_1, player_2, game_position, player_1_energy, player_2_energy FROM saved_games WHERE game_id='"
 					+ game_ID + "';";
 			rs = stmt.executeQuery(sql);
-			// rs.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -178,7 +169,6 @@ public class Connector {
 			System.out.println("Saving game");
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -224,7 +214,6 @@ public class Connector {
 			String sql = "SELECT game_position, player_1_energy, player_2_energy, player_1_move, player_2_move, move_number FROM game_in_progress WHERE game_id='"
 					+ game_ID + "' AND move_number='" + move_number + "';";
 			rs = stmt.executeQuery(sql);
-			// rs.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -243,7 +232,6 @@ public class Connector {
 			stmt = conn.createStatement();
 			String sql = "SELECT MAX(move_number) FROM game_in_progress WHERE game_id = '" + game_ID + "';";
 			rs = stmt.executeQuery(sql);
-			// rs.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -262,7 +250,6 @@ public class Connector {
 		try {
 			stmt = conn.createStatement();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		String sql = "UPDATE game_in_progress " + "SET " + player_x_move + " = '" + humanMove + "' WHERE game_id = '"
@@ -270,7 +257,6 @@ public class Connector {
 		try {
 			stmt.executeUpdate(sql);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -290,7 +276,6 @@ public class Connector {
 			String sql = "SELECT " + player_X_move + " FROM game_in_progress WHERE game_id = '" + game_ID
 					+ "' AND move_number = '" + move_number + "';";
 			rs = stmt.executeQuery(sql);
-			// rs.close();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -299,14 +284,17 @@ public class Connector {
 		return rs;
 	}
 
+	/**
+	 * Delete the game in progress colums where game_ID matches
+	 * 
+	 * @param game_ID
+	 */
 	public void deleteGameInProgress(String game_ID) {
 
 		try {
 			stmt = conn.createStatement();
 			String sql = "DELETE FROM game_in_progress  WHERE game_id='" + game_ID + "';";
 			stmt.executeUpdate(sql);
-			// rs.close();
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -325,7 +313,6 @@ public class Connector {
 			stmt = conn.createStatement();
 			String sql = "SELECT player_2, player_2_random FROM open_games WHERE player_1_random='" + myRandom + "';";
 			rs = stmt.executeQuery(sql);
-			// rs.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -343,7 +330,6 @@ public class Connector {
 			stmt = conn.createStatement();
 			String sql = "SELECT * FROM open_games";
 			rs = stmt.executeQuery(sql);
-			// rs.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
