@@ -226,9 +226,9 @@ public class UI {
 				addText("Checking for other player...");
 				TimeUnit.SECONDS.sleep(2);
 				timeOut++;
-				if (timeOut == 5) {
+				if (timeOut == 10) {
 					if (debug()) {
-						addDebugText("Waited 10 seconds and nobody joined.");
+						addDebugText("Waited 20 seconds and nobody joined.");
 					}
 					break;
 				}
