@@ -148,12 +148,22 @@ public class UI {
 			addText("Waiting for opponent to start the game");
 			timeout++;
 			TimeUnit.SECONDS.sleep(2);
-			if (timeout == 10) {
-				if (debug()) {
-					addDebugText("18 sec passed, opponent didnt start the game.");
+			if (timeout == 5) {
+				String answer = JOptionPane.showInputDialog(null,
+						"Do you want to wait more? Hit ok if you do, cancel if no.", "yes");
+				if (answer != null && answer.toLowerCase().contains("yes")) {
+					timeout = 0;
+					if (debug()) {
+						addDebugText("Player chose to wait more and timeout is reset and set to: " + timeout);
+					}
+				} else {
+					if (debug()) {
+						addDebugText("Player chose to leave. Not starting game.");
+					}
+					fightChosenPlayerButton.setVisible(false);
+					addText("You chose to leave.");
+					return;
 				}
-				addText("Opponent didn't host the game, try to join a different one.");
-				return;
 			}
 		}
 		fightChosenPlayerButton.setVisible(false);
