@@ -27,7 +27,6 @@ public class Gamemaster {
 	public int rounds = 0; // current number of rounds, increment at end of a
 							// turn
 	private Connector connector;
-
 	private String game_ID;
 	private boolean host = false;
 	private boolean CPUGame = false;
@@ -92,11 +91,10 @@ public class Gamemaster {
 
 	public void removeGameFromDB() {
 		connector.deleteGameInProgress(getGameID());
-
 	}
 
 	/**
-	 * SEts the moves to -1 to represent that their moves are cleared and not
+	 * Sets the moves to -1 to represent that their moves are cleared and not
 	 * been done. Make sure to check for <0
 	 */
 	public void clearMoves() {
@@ -139,16 +137,15 @@ public class Gamemaster {
 	 * Returns the move that the opponent has made.
 	 * 
 	 * @param game_ID
+	 *            String
 	 * @param move_number
-	 * @return opponents move
+	 *            int
+	 * @return opponents move as an int
 	 * @throws SQLException
 	 */
 	public int getOpponentMoveDB(String game_ID, int move_number) throws SQLException {
 		int move = 0;
 		String opponentField = "player_1_move";
-		if (isHost()) {
-
-		}
 		if (isHost()) {
 			opponentField = "player_2_move";
 		}
@@ -173,7 +170,6 @@ public class Gamemaster {
 	public boolean waitForOpponent() throws SQLException {
 		boolean madeMove = false;
 		int move = getOpponentMoveDB(getGameID(), rounds);
-
 		if (move >= 0) {
 			madeMove = true;
 		}
@@ -183,7 +179,6 @@ public class Gamemaster {
 	public boolean didOpponentStartTheGame() {
 		ResultSet theGame = connector.returnGameInProgress(getGameID(), rounds);
 		boolean result = false;
-
 		try {
 			if (theGame.next()) {
 				result = true;
@@ -219,12 +214,8 @@ public class Gamemaster {
 				connector.updateOpenGames(opponent.getName(), opponent.getRandom(), playerMe.getName(),
 						playerMe.getRandom());
 				setGameID();
-				// connector.insertGamesInProgress(game_ID,
-				// getOpponent().getName(), getHumanPlayer().getName());
-
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -383,7 +374,6 @@ public class Gamemaster {
 		} else {
 			return false;
 		}
-
 		return success;
 	}
 
@@ -472,7 +462,6 @@ public class Gamemaster {
 
 		default:
 			break;
-
 		}
 	}
 
@@ -519,7 +508,6 @@ public class Gamemaster {
 
 			default:
 				break;
-
 			}
 		} else {
 			switch (opponent.getPosition()) {
