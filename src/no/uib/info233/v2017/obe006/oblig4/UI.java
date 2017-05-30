@@ -276,7 +276,7 @@ public class UI {
 		boolean success = false;
 		if (name != null) {
 			if (debug()) {
-				addDebugText("checking that length of name is more than 1. It is: " + name.length());
+				addDebugText("checking that length of name is more than or == 1. It is: " + name.length());
 			}
 			if (name.length() >= 1) {
 				addText("Your name is set to: " + name);
