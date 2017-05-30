@@ -509,9 +509,9 @@ public class UI {
 			addText("Game is over");
 			if (gamemaster.isHost()) {
 				if (debug()) {
-					addDebugText("Waiting 2sec for opponent to finish reading from db.");
+					addDebugText("Waiting 4sec for opponent to finish reading from db.");
 				}
-				TimeUnit.SECONDS.sleep(2);// wait a moment so the opponent can
+				TimeUnit.SECONDS.sleep(4);// wait a moment so the opponent can
 											// still read from db
 
 				gamemaster.removeGameFromDB();
