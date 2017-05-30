@@ -668,7 +668,7 @@ public class UI {
 		makeMoveButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				String move = JOptionPane.showInputDialog(null, "How much energy do you want to spend?", "Type here");
+				String move = JOptionPane.showInputDialog(null, "How much energy do you want to spend?", "1");
 				int moveInt = Integer.parseInt(move);
 
 				try {
