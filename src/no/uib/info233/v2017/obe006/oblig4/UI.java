@@ -379,6 +379,9 @@ public class UI {
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			if (debug()) {
+				addDebugText("Actual move made: " + gamemaster.getHumanPlayer().getMove());
+			}
 			try {
 				addText("Waiting for opponent to make their move...");
 				if (debug()) {
