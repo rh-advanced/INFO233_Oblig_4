@@ -428,7 +428,7 @@ public class Gamemaster {
 	 * Gives the player and the AI a score
 	 */
 	public void scoreGiverVsAI() {
-		switch (opponent.getPosition()) {
+		switch (getHumanPlayer().getPosition()) {
 		case -3:
 			playerMe.gameOver(-1);
 			robot.gameOver(2);
