@@ -122,7 +122,7 @@ public class Gamemaster {
 	}
 
 	/**
-	 * Hosts an open game.
+	 * Hosts an open game. Removes the open_games entry.
 	 * 
 	 * @throws SQLException
 	 */
@@ -131,6 +131,17 @@ public class Gamemaster {
 		playerMe.setHomePosition(-3);
 		opponent.setHomePosition(3);
 		createGameInProgress(playerMe, opponent);
+		removeGameFromOpenGames(getHumanPlayer().getRandom());
+	}
+
+	/**
+	 * Removes the games from open games where player_1_random matches the
+	 * parameter.
+	 * 
+	 * @param player_1_random
+	 */
+	private void removeGameFromOpenGames(String player_1_random) {
+		getConnector().deleteFromOpenGames(player_1_random);
 	}
 
 	/**

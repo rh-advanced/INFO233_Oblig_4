@@ -221,6 +221,21 @@ public class Connector {
 	}
 
 	/**
+	 * Deletes the game that matches player_1_random from open_games
+	 * 
+	 * @param player_1_random
+	 */
+	public void deleteFromOpenGames(String player_1_random) {
+		try {
+			stmt = conn.createStatement();
+			String sql = "DELETE FROM open_games  WHERE player_1_random='" + player_1_random + "';";
+			stmt.executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
 	 * Returns a resultset with the highest move in the db with that game_ID
 	 * 
 	 * @param game_ID
