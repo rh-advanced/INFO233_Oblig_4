@@ -493,6 +493,7 @@ public class UI {
 				addText("Submitting scores to the database.");
 			}
 			gamemaster.getConnector().conn.close();
+			newGameButton.setVisible(true);
 			makeMoveButton.setVisible(false);
 		}
 		updateUIEnergy();
