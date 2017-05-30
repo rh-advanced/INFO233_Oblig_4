@@ -78,10 +78,20 @@ public class UI {
 	 */
 	public void addText(String text) {
 		textArea.setText(textArea.getText() + "\n" + text);
+		textArea.setCaretPosition(50000);
 	}
 
+	/**
+	 * Add text to debugger
+	 * 
+	 * @param text
+	 */
 	public void addDebugText(String text) {
 		debugArea.setText(debugArea.getText() + "\n" + text);
+		debugArea.setCaretPosition(50000);
+
+	}
+
 	}
 
 	/**
